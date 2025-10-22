@@ -534,7 +534,7 @@ module m555(
     initial 
         #5 clock = 1;
     always
-        #50 clock ~clock;
+        #50 clock = ~clock;
 endmodule
 ```
 이 모듈 역시 `module`로 시작하고 `endmodule`로 끝난다.
@@ -544,14 +544,14 @@ endmodule
 일반적으로 **`initial` 문**을 이용해 모듈 동작을 정의하는 것은 권장되지 않지만,
 
 이 예제에서는 **간단한 클록 생성기(clock generator)** 를 설명하기 위해 사용한다.
-이 경우, 출력 `clock`은 **15ns마다 반전(toggle)** 된다.
+이 경우, 출력 `clock`은 **50ns마다 반전(toggle)** 된다.
 
-즉, 처음에 `0`이었다면 15ns 후 `1`로 바뀌고,
+즉, 처음에 `0`이었다면 50ns 후 `1`로 바뀌고,
 
-다시 15ns 후에는 `0`으로 돌아간다.
-이렇게 반복되어 **주기 30ns의 사각파(clock signal)** 가 생성된다.
+다시 50ns 후에는 `0`으로 돌아간다.
+이렇게 반복되어 **주기 100ns의 사각파(clock signal)** 가 생성된다.
 
-물론 이 시간 단위(15ns, 50µs 등)는 Verilog 코드나 테스트벤치에 설정된 **timescale 지시문**에 따라 달라질 수 있다.
+물론 이 시간 단위(5ns, 50ns 등)는 Verilog 코드나 테스트벤치에 설정된 **timescale 지시문**에 따라 달라질 수 있다.
 이러한 클록 생성 모듈의 이름은 **`m555`** 이며, 정의가 끝나면 `endmodule`로 종료된다.
 
 정리하자면, Verilog에서 모듈을 정의할 때는 다음과 같은 순서를 따른다.
@@ -795,7 +795,7 @@ module pe_single_batch #(
 endmodule
 
 ```
-예시로 `psingle_batch`라는 이름의 모듈을 정의한다고 하면,
+예시로 `pe_single_batch`라는 이름의 모듈을 정의한다고 하면,
 그 안에는 다음과 같은 내용이 포함된다.
 - 각 포트가 **입력(input)** 인지 **출력(output)** 인지 명시하고,
 - 신호 타입이 **`wire`** 인지 **`reg`** 인지를 지정한다.
