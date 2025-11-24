@@ -43,7 +43,7 @@ module tb_mm;
     wire            tester_done;
     
     // (3) module instantiation
-    custom_matmul mm_ip(
+    custom_matmul16x16 mm_ip(
         .i_clk          (clk),
         
         .i_cen          (tester_cen),
