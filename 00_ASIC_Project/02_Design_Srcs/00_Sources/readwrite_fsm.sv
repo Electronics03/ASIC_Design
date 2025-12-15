@@ -171,8 +171,8 @@ module readwrite_fsm (
     assign o_amem_cen = ~o_read;
     assign o_bmem_cen = ~o_read;
 
-    assign o_amem_wen = o_read;
-    assign o_bmem_wen = o_read;
+    assign o_amem_wen = 1'b1;
+    assign o_bmem_wen = 1'b1;
 
     assign o_omem_cen = ~o_eight_pulse;
     assign o_omem_wen = ~o_eight_pulse;

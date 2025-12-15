@@ -78,10 +78,12 @@ module sram_controller (
     assign o_amem_cen = ~(sel_amem & ~i_cen);
     assign o_bmem_cen = ~(sel_bmem & ~i_cen);
     assign o_omem_cen = ~(sel_omem & ~i_cen);
-    // Read Write enable
-    assign o_amem_wen = ~(sel_amem & ~i_wen);
-    assign o_bmem_wen = ~(sel_bmem & ~i_wen);
-    assign o_omem_wen = ~(sel_omem & ~i_wen);
+    
+    // Read/Write enable:
+    // default to read 1 unless chip is selected AND cen is low AND wen is low
+    assign o_amem_wen = ~(sel_amem & ~i_cen & ~i_wen);
+    assign o_bmem_wen = ~(sel_bmem & ~i_cen & ~i_wen);
+    assign o_omem_wen = ~(sel_omem & ~i_cen & ~i_wen);
 
     // Address input routing
     assign o_amem_addr = i_addr[6:0];
