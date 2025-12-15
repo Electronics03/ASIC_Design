@@ -1,7 +1,7 @@
 //////////////////////////////////////////////////////////////////////////////////
-// Company:    Chung-Ang University
-// Department: Electrical and Electronics Engineering
-// Engineer:   SANGHYEOK PARK
+// University : Chung-Ang University
+// Department : Electrical and Electronics Engineering
+// Engineer   : SANGHYEOK PARK
 // 
 // Create Date:    2025/11/20 20:30:00
 // Design Name:    Pipelined_Matmul_16x16
