@@ -51,8 +51,11 @@ module sram_32x1_256(
     if(~CEN) begin
 		if(~WEN) begin
             mem[A]     = D;
+            Q = #1 {BPW{1'bx}};
         end
-        Q = #1 {mem[A]};
+        else begin
+            Q = #1 {mem[A]};
+        end
     end
     else begin
         Q = #1 {BPW{1'bx}};
