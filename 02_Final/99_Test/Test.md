@@ -38,9 +38,9 @@
 2. 지수에서 바이어스를 뺀다
 3. 가수에 암묵적 선행 1을 추가한다
 4. 값을 계산한다: 
-   $$
-   Value = (-1)^{Sign} \times (1 + fraction) \times 2^{(Exponent - Bias)}
-   $$
+$$
+Value = (-1)^{Sign} \times (1 + fraction) \times 2^{(Exponent - Bias)}
+$$
 
 ### FP Addition/Subtraction
 1. 지수 맞추기: 지수가 더 작은 수의 가수를 오른쪽으로 시프트한다
@@ -89,9 +89,9 @@
 ## Timing
 ### Setup Time
 * 셋업 타이밍 슬랙
-  $$
-  t_{\text{slack}} = t_{cy} - (t_s + t_{dab} + t_{dCQ})
-  $$
+$$
+t_{\text{slack}} = t_{cy} - (t_s + t_{dab} + t_{dCQ})
+$$
 * $t_{cy}$: 클럭 주기
 * $t_s$: 셋업 타임 (플립플롭 데이터시트)
 * $t_{dab}$: 조합 논리의 전파 지연
@@ -101,9 +101,9 @@
 
 ### Hold Time
 * 홀드 타이밍 슬랙
-  $$
-  t_{\text{slack}} = t_{cCQ} + t_{ccd} - t_h
-  $$
+$$
+t_{\text{slack}} = t_{cCQ} + t_{ccd} - t_h
+$$
 * $t_{cCQ}$: 클럭 -> Q 오염 지연
 * $t_{ccd}$: 조합 논리의 오염 지연 (최소 지연)
 * $t_h$: 홀드 타임
@@ -113,28 +113,28 @@
 ### Time skew
 #### 셋업 타임에 대한 영향
 * Prior 플립플롭 지연 시
-  $$
-  t_{\text{slack}} = t_{cy} + t_k - (t_s + t_{dab} + t_{dCQ})
-  $$
+$$
+t_{\text{slack}} = t_{cy} + t_k - (t_s + t_{dab} + t_{dCQ})
+$$
   * 셋업 위반 가능성 증가 (부정적)
 
 * Posterior 플립플롭 지연 시
-  $$
-  t_{\text{slack}} = t_{cy} - t_k - (t_s + t_{dab} + t_{dCQ})
-  $$
+$$
+t_{\text{slack}} = t_{cy} - t_k - (t_s + t_{dab} + t_{dCQ})
+$$
   * 셋업 여유 증가 (긍정적)
 * 권장: 셋업 위반 해결을 위해 후단 플립플롭에 지연 삽입
 
 #### 홀드 타임에 대한 영향 (Effect on Hold Time Constraint)
 * Prior 플립플롭 지연 시
-  $$
-  t_{\text{slack}} = t_{cCQ} + t_{ccd} - t_h - t_k
-  $$
+$$
+t_{\text{slack}} = t_{cCQ} + t_{ccd} - t_h - t_k
+$$
   * 홀드 위반 위험 증가
 * Posterior 플립플롭 지연 시
-  $$
-  t_{\text{slack}} = t_{cCQ} + t_{ccd} - t_h + t_k
-  $$
+$$
+t_{\text{slack}} = t_{cCQ} + t_{ccd} - t_h + t_k
+$$
   * 홀드 여유 증가
 * 권장: 홀드 위반 해결을 위해 전단 플립플롭에 지연 삽입
 * 주의: 홀드 해결을 위한 스큐 조정은 셋업을 악화시킬 수 있다.
