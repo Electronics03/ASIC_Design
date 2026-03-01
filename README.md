@@ -1,4 +1,4 @@
-# 16×16 Fixed Matrix-Multiplication ASIC
+# INT8 16×16 Matrix-Multiplication ASIC
 
 ## 1 Project Goal
 
@@ -126,7 +126,7 @@ The output matrix `O` must be written to OMEM in the following order:
 
 ---
 
-# Korean Version: 16×16 고정 행렬곱 ASIC
+# Korean Version: INT8 16×16 고정 행렬곱 ASIC
 
 ## 1 프로젝트 목표
 
